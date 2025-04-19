@@ -17,7 +17,7 @@ def go(args):
 
     logger.info("Downloading artifact")
     artifact = run.use_artifact(args.input_artifact)
-    artifact_path = artifact.file()
+    artifact_path = artifact.file("artifacts")
 
     df = pd.read_parquet(artifact_path)
 
