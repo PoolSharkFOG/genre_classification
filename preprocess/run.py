@@ -19,6 +19,13 @@ def go(args):
     artifact = run.use_artifact(args.input_artifact)
     artifact_path = artifact.file(root="artifacts")
 
+    # Ensure the artifact path is valid
+    artifact_path = artifact_path.replace(":latest", "")
+    logger.info(f"Artifact path: {artifact_path}")
+
+    # Ensure the directory exists
+    os.makedirs("artifacts", exist_ok=True)
+
     df = pd.read_parquet(artifact_path)
 
     # Drop the duplicates
