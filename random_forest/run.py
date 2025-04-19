@@ -30,7 +30,7 @@ def go(args):
     run = wandb.init(job_type="train")
 
     logger.info("Downloading and reading train artifact")
-    train_data_path = run.use_artifact(args.train_data).file()
+    train_data_path = run.use_artifact(args.train_data).file(root="./artifacts")
     df = pd.read_csv(train_data_path, low_memory=False)
 
     # Extract the target from the features

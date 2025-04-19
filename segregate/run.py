@@ -19,7 +19,7 @@ def go(args):
 
     logger.info("Downloading and reading artifact")
     artifact = run.use_artifact(args.input_artifact)
-    artifact_path = artifact.file()
+    artifact_path = artifact.file(root="./artifacts")
 
     df = pd.read_csv(artifact_path, low_memory=False)
 
