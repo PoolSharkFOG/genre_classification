@@ -113,6 +113,10 @@ def test_kolmogorov_smirnov(data, ks_alpha):
 
         ts, p_value = scipy.stats.ks_2samp(sample1[col], sample2[col])
 
+        print(f"sample1: {sample1[col]}")
+        print(f"sample2: {sample2[col]}")
+        print(f"p_value: {p_value}")
+
         # NOTE: as always, the p-value should be interpreted as the probability of
         # obtaining a test statistic (TS) equal or more extreme that the one we got
         # by chance, when the null hypothesis is true. If this probability is not
