@@ -45,7 +45,7 @@ def go(config: DictConfig):
             os.path.join(root_path, "preprocess"),
             "main",
             parameters={
-                "input_artifact": "raw_data.parquet",
+                "input_artifact": "raw_data.parquet:latest",
                 "artifact_name": "processed_data.csv",
                 "artifact_type": "processed_data",
                 "artifact_description": "Data with preprocessing applied"
