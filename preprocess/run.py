@@ -17,14 +17,10 @@ def go(args):
 
     logger.info("Downloading artifact")
     artifact = run.use_artifact(args.input_artifact)
-    artifact_path = artifact.file(root="artifacts")
 
-    # Ensure the artifact path is valid
-    artifact_path = artifact_path.replace(":latest", "")
+    # Set root to "./artifacts" to ensure the artifact is downloaded to the correct directory
+    artifact_path = artifact.file(root="./artifacts")
     logger.info(f"Artifact path: {artifact_path}")
-
-    # Ensure the directory exists
-    os.makedirs("artifacts", exist_ok=True)
 
     df = pd.read_parquet(artifact_path)
 
