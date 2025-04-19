@@ -29,6 +29,7 @@ def go(args):
     logger.info("Feature engineering")
     df['title'].fillna(value='', inplace=True)
     df['song_name'].fillna(value='', inplace=True)
+    df['loudness'].fillna(value=df['loudness'].median(), inplace=True)
     df['text_feature'] = df['title'] + ' ' + df['song_name']
 
     filename = "processed_data.csv"
